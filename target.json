@@ -2,13 +2,14 @@
   "web": {
     "baseUrl": "http://localhost:8989",
     "login": "administrator",
-    "password": "root"
+    "password": "focCi3QS9mmYNbKYoqXm"
   },
   "db": {
-    "host": "localhost:3307",
+    "host": "localhost",
     "database": "bugtracker",
     "user": "root",
-    "password": "root"
+    "password": "root",
+    "port": 3307
   },
   "mantis_config":
   {

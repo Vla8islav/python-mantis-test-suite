@@ -2,6 +2,7 @@ from selenium import webdriver
 
 from fixture.session import SessionHelper
 from fixture.generic_elements import GenericElementsHelper
+from helpers.project import ProjectHelper
 
 
 class Application:
@@ -18,6 +19,7 @@ class Application:
             raise ValueError("Unrecognised browser option %s" % browser)
         self.session = SessionHelper(self)
         self.ge = GenericElementsHelper(self)
+        self.pr = ProjectHelper(self)
 
     def destroy(self):
         self.wd.quit()

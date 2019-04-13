@@ -5,6 +5,7 @@ import jsonpickle
 import pytest
 
 from fixture.application import Application
+from fixture.dbfixture import DbFixture
 from model.user import User
 
 fixture = None
@@ -47,7 +48,7 @@ def app(request):
 @pytest.fixture(scope="session")
 def db(request):
     db_config = load_config(request.config.getoption("--target"))["db"]
-    db_fixture = DbFixture(host=db_config["host"], database=db_config["database"], user=db_config["user"],
+    db_fixture = DbFixture(host=db_config["host"], port=db_config["port"], database=db_config["database"], user=db_config["user"],
                            password=db_config["password"])
 
     def fin():
