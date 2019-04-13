@@ -13,5 +13,7 @@ mysql:
     - MYSQL_DATABASE=bugtracker
     - MYSQL_USER=mantisbt
     - MYSQL_PASSWORD=mantisbt
+  ports:
+    - "3307:3306"
   restart: always
 

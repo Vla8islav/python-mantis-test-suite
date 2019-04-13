@@ -1,0 +1,23 @@
+{
+  "web": {
+    "baseUrl": "http://localhost:8989",
+    "login": "administrator",
+    "password": "root"
+  },
+  "db": {
+    "host": "localhost:3307",
+    "database": "bugtracker",
+    "user": "root",
+    "password": "root"
+  },
+  "mantis_config":
+  {
+    "db":
+    {
+      "host" : "mysql",
+      "user" : "mantisbt",
+      "password" : "mantisbt",
+      "database" : "bugtracker"
+    }
+  }
+}
