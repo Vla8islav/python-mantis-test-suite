@@ -24,6 +24,18 @@ class DbFixture:
     def project_with_name_exists(self, name):
         return self.get_project_by_name(name) is not None
 
+    def get_max_project_id(self):
+        retval = 1
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute("select max(id) as max_id from mantis_project_table")
+            for row in cursor:
+                (max_id) = row
+                retval = max_id[0]
+        finally:
+            cursor.close()
+        return retval
+
     def get_project_list(self):
         retval = []
         cursor = self.connection.cursor()
