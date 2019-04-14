@@ -3,6 +3,7 @@ from selenium import webdriver
 from fixture.session import SessionHelper
 from fixture.generic_elements import GenericElementsHelper
 from helpers.project import ProjectHelper
+from helpers.soap import SoapHelper
 
 
 class Application:
@@ -20,6 +21,7 @@ class Application:
         self.session = SessionHelper(self)
         self.ge = GenericElementsHelper(self)
         self.pr = ProjectHelper(self)
+        self.sh = SoapHelper(self)
 
     def destroy(self):
         self.wd.quit()
