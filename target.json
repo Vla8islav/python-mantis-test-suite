@@ -1,8 +1,10 @@
 {
   "web": {
-    "baseUrl": "http://localhost:8989",
+    "baseUrl": "http://localhost/mantisbt-1.2.20/",
     "login": "administrator",
-    "password": "focCi3QS9mmYNbKYoqXm"
+    "password": "focCi3QS9mmYNbKYoqXm",
+    "password2": "rootvnjkdfkjvnjfkvfd"
+
   },
   "db": {
     "host": "localhost",
