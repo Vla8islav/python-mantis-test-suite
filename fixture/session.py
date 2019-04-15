@@ -1,3 +1,5 @@
+import copy
+
 from selenium.common.exceptions import NoSuchElementException
 
 
@@ -5,6 +7,8 @@ class SessionHelper:
 
     def __init__(self, app):
         self.app = app
+
+    current_user = None
 
     def login(self, user):
         # Login
@@ -16,6 +20,7 @@ class SessionHelper:
             self.app.wd.find_element_by_name("password").clear()
             self.app.wd.find_element_by_name("password").send_keys(user.password)
             self.app.wd.find_element_by_css_selector("form[id=login-form] input[type=submit]").click()
+            self.current_user = copy.copy(user)
 
     def ensure_login(self, user):
         if not self.are_we_logged_in():
@@ -28,6 +33,7 @@ class SessionHelper:
     def logout(self):
         self.app.wd.delete_all_cookies()
         self.app.wd.refresh()
+        self.current_user = None
 
     def ensure_logout(self):
         if self.are_we_logged_in():
