@@ -1,6 +1,5 @@
-import suds.bindings
-from suds import WebFault
-
+from zeep import Client
+from zeep.exceptions import Fault
 
 class SoapHelper:
 
@@ -8,10 +7,10 @@ class SoapHelper:
         self.app = app
 
     def can_login(self, username, password):
-        client = suds.client.Client(self.app.get_absolute_url("api/soap/mantisconnect.php?wsdl"))
+        client = Client(self.app.get_absolute_url("api/soap/mantisconnect.php?wsdl"))
         try:
             client.service.mc_login(username, password)
             return True
-        except WebFault:
+        except Fault:
             return False
 

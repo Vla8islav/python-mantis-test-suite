@@ -8,13 +8,14 @@ class SessionHelper:
 
     def login(self, user):
         # Login
-        if self.app.sh.can_login(user.username, user.password):
-            self.app.open_home_page()
+        self.app.open_home_page()
+        if self.app.sh.can_login(username=user.username, password=user.password):
             self.app.wd.find_element_by_name("username").clear()
             self.app.wd.find_element_by_name("username").send_keys(user.username)
+            self.app.wd.find_element_by_css_selector("form[id=login-form] input[type=submit]").click()
             self.app.wd.find_element_by_name("password").clear()
             self.app.wd.find_element_by_name("password").send_keys(user.password)
-            self.app.wd.find_element_by_css_selector("input[type=submit][value=Login]").click()
+            self.app.wd.find_element_by_css_selector("form[id=login-form] input[type=submit]").click()
 
     def ensure_login(self, user):
         if not self.are_we_logged_in():
@@ -33,7 +34,6 @@ class SessionHelper:
             self.logout()
 
     def are_we_logged_in(self):
-        return True
         try:
             retval = len(self.app.wd.find_element_by_css_selector("span.user-info")) > 0
         except:

@@ -1,6 +1,6 @@
 {
   "web": {
-    "baseUrl": "http://localhost/mantisbt-1.2.20/",
+    "baseUrl": "http://localhost:8989/",
     "login": "administrator",
     "password": "focCi3QS9mmYNbKYoqXm",
     "password2": "rootvnjkdfkjvnjfkvfd"
